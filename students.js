@@ -9,76 +9,54 @@ kursen och antal högskolepoäng dom klarat av. Avklarade kurser,
 dvs. att dom fått alla högskolepoäng från kursen, ska markeras 
 på något vis (t.ex. via en bak- eller förgrundsfärg). */
 
-/*let form = document.getElementById("form");
+let students = DATABASE.students;
+//let student = [DATABASE.students[0], DATABASE.students[1]];
 
-function findStudent (){
-    let filteredStudents = [];
-    for (let i = 0; i < DATABASE.students.length; i++){
-        let lastName = DATABASE.students[i].lastName;
-        let student = DATABASE.students[i];
-        if (lastName.includes(this.value)){
-            filteredStudents.push(student);
-        }
-    }
-}
-
-function keyUp (){
-    console.log(this.value);
-}
-
-form.addEventListener("keyup", findStudent);*/
-
-/*function renderStudent (student){
-    for (let i = 0; i < student.students.length; i++){
-        let div = document.createElement("div");
-        div.classList.add("container");
-
-        div.innerHTML = `
-        <header id ="studentNames"> ${student.students[i].firstName} ${student.students[i].lastName}</header>
-        <h4>Courses:</h4>
-        <div id ="grid>
-        <div id ="box"></div>
-        </div>`;
-        document.querySelector("#wrapper").appendChild(div);
-    }
-}*/
-
-/*function getStudentByLastName(student, lastName){
-    let studentByLastName = [];
-    for (let student of stidents){
-        if (student.lastName.toLowerCase() == lastName.toLowerCase()){
-            studentByLastName.push(student);
-        }
-        return studentByLastName;
-    }
-}
-
-function placeStudent(student){
+function getStudent(id) {
     let div = document.createElement("div");
-    div.classList.add("student");
-    div.id = student.id;
+    let student = DATABASE.students[id];
+    div.id = "box";
     div.innerHTML = `
-    <div>${student.firstName} ${student.lastName}</div>
-    `;
+    <header> ${student.firstName} ${student.lastName}(total credits: ${totalCredits(student)})</header>
+    <div>
+    <div id="course">
+    <h3>Courses: </h3>
+    <div id="courses">
+    ${getCourses(student)}
+    </div>
+    </div>
+    </div>`
     return div;
 }
 
-function placeStudents(students){
-    let studentsElement = document.querySelector("#results");
-    studentsElement.innerHTML = "";
+function totalCredits(student) {
+    let credit = [];
+    for (let course of student.courses) {
+        credit.push(course.passedCredits)
+    }
+    let totalSum = 0;
+    for (let i = 0; i < credit.length; i++) {
+        totalSum += credit[i];
+    }
+    return totalSum;
+}
 
-    for (let student of students ){
-        let studentElement = placeStudent(student);
+function getStudents(students) {
+    let studentsElement = document.getElementById("result");
+    for (let student of students) {
+        let studentElement = getStudent(student.studentID);
         studentsElement.appendChild(studentElement);
     }
 }
 
-function getStudent (event){
-    event.preventDefault();
-    let person = document.getElementById("form").value;
-    let students = getStudentsByLastName(DATABASE, lastName);
-    placeStudents(students);
-}
-
-placeStudents(DATABASE);
-*/
+    function getCourses(student) {
+        let courseDatabase = DATABASE.courses;
+        let courses = [];
+        for (let course of student.courses) {
+            if (course.courseID == courseDatabase.courseID) {
+                courses.push(courseDatabase);
+            }
+        }
+    }
+    
+    getStudents(DATABASE.students);
