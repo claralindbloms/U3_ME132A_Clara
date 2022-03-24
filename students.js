@@ -17,7 +17,7 @@ function getStudent(id) {
     let student = DATABASE.students[id];
     div.id = "box";
     div.innerHTML = `
-    <header> ${student.firstName} ${student.lastName} (total credits: ${totalCredits(student)})</header>
+    <header> ${student.firstName} ${student.lastName} (total: ${totalCredits(student)} credits)</header>
     <div>
     <div id="course">
     <h3>Courses: </h3>
@@ -61,12 +61,12 @@ function getCourses(student) {
         if (student.courses[i].passedCredits == courseDatabase[courses[i].courseId].totalCredits) {
             let text = div.innerHTML = `
             <div class = "finished"><h4>${courses[i].title}</h4>
-            <p>(${student.courses[i].passedCredits} of ${courseDatabase[courses[i].courseId].totalCredits} credits)</p></div>`
+            <p>${student.courses[i].started.semester} ${student.courses[i].started.year} (${student.courses[i].passedCredits} of ${courseDatabase[courses[i].courseId].totalCredits} credits)</p></div>`
             courseDiv.push(text);
         } else {
             let text = div.innerHTML = `
             <div><h4>${courses[i].title}</h4>
-            <p>(${student.courses[i].passedCredits} of ${courseDatabase[courses[i].courseId].totalCredits} credits)</p></div>`
+            <p>${student.courses[i].started.semester} ${student.courses[i].started.year} (${student.courses[i].passedCredits} of ${courseDatabase[courses[i].courseId].totalCredits} credits)</p></div>`
             courseDiv.push(text);
         }
 
