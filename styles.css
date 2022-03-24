@@ -6,15 +6,50 @@ body {
 }
 
 #wrapper {
-    background-color: white;
     padding: 25px;
 }
 
 
 #result {
     margin-top: 15px;
-    padding: 70px;
+}
+
+#result > div {
     background-color: whitesmoke;
 }
 
+.finished {
+    background-color: lightgreen;
+}
 
+#courses {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    margin: 10px;
+}
+
+#courses > div {
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin: 5px;
+}
+
+header {
+    margin: 10px;
+    font-size: 15px;
+}
+
+p {
+    margin: 10px;
+}
+
+h3 {
+    margin: 10px;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+h4 {
+    margin: 10px;
+}

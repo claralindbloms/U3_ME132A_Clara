@@ -17,13 +17,11 @@ function getStudent(id) {
     let student = DATABASE.students[id];
     div.id = "box";
     div.innerHTML = `
-    <header> ${student.firstName} ${student.lastName}(total credits: ${totalCredits(student)})</header>
+    <header> ${student.firstName} ${student.lastName} (total credits: ${totalCredits(student)})</header>
     <div>
     <div id="course">
     <h3>Courses: </h3>
-    <div id="courses">
-    ${getCourses(student)}
-    </div>
+    <div id="courses">${getCourses(student)}</div>
     </div>
     </div>`
     return div;
@@ -71,7 +69,7 @@ function getCourses(student) {
             <p>(${student.courses[i].passedCredits} of ${courseDatabase[courses[i].courseId].totalCredits} credits)</p></div>`
             courseDiv.push(text);
         }
-        
+
     }
     return courseDiv.toString().split(",").join("");
 }
