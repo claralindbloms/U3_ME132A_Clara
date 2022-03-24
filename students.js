@@ -49,14 +49,33 @@ function getStudents(students) {
     }
 }
 
-    function getCourses(student) {
-        let courseDatabase = DATABASE.courses;
-        let courses = [];
-        for (let course of student.courses) {
-            if (course.courseID == courseDatabase.courseID) {
-                courses.push(courseDatabase);
-            }
-        }
+function getCourses(student) {
+    let courseDatabase = DATABASE.courses;
+    let courses = [];
+    for (let i = 0; i < student.courses.length; i++) {
+        let id = student.courses[i].courseId;
+        courses.push(courseDatabase[id]);
+
     }
-    
-    getStudents(DATABASE.students);
+    let courseDiv = [];
+    for (let i = 0; i < courses.length; i++) {
+        let div = document.createElement("div");
+        if (student.courses[i].passedCredits == courseDatabase[courses[i].courseId].totalCredits) {
+            let text = div.innerHTML = `
+            <div class = "finished"><h4>${courses[i].title}</h4>
+            <p>(${student.courses[i].passedCredits} of ${courseDatabase[courses[i].courseId].totalCredits} credits)</p></div>`
+            courseDiv.push(text);
+        } else {
+            let text = div.innerHTML = `
+            <div><h4>${courses[i].title}</h4>
+            <p>(${student.courses[i].passedCredits} of ${courseDatabase[courses[i].courseId].totalCredits} credits)</p></div>`
+            courseDiv.push(text);
+        }
+        
+    }
+    return courseDiv.toString().split(",").join("");
+}
+
+getStudents(DATABASE.students);
+
+
