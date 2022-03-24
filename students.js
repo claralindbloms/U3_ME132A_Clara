@@ -39,13 +39,27 @@ function totalCredits(student) {
     return totalSum;
 }
 
-function getStudents(students) {
+function getStudents(students, searchedName) {
     let studentsElement = document.getElementById("result");
-    for (let student of students) {
-        let studentElement = getStudent(student.studentID);
-        studentsElement.appendChild(studentElement);
+    if (searchedName != undefined) {
+        let info = searchedName.toLowerCase();
+        document.getElementById("result").innerHTML = "";
+        for (let student of students) {
+            let field = student.lastName.toLowerCase();
+            if (field.includes(info)) {
+                let studentElement = getStudent(student.studentID);
+                studentsElement.appendChild(studentElement);
+            }
+        }
+    }
+    if (searchedName == undefined) {
+        for (let student of students) {
+            let studentElement = getStudent(student.studentID);
+            studentsElement.appendChild(studentElement);
+        }
     }
 }
+
 
 function getCourses(student) {
     let courseDatabase = DATABASE.courses;
@@ -73,7 +87,47 @@ function getCourses(student) {
     }
     return courseDiv.toString().split(",").join("");
 }
+//new
+/*function filterStudentsByLastName(students) {
+    let search = document.querySelector("#students_search");
+    search.addEventListener("keyup", onKeyUp);
+    for (let i = 0; i < DATABASE.students.lastName; i++) {
+        if (search.innerHTML == DATABASE.students.lastName[i]) {
+            students.filter(student => (student.lastName == [i]));
+        }
+    }
+}*/
+
+/*function filterStudentsByLastName() {
+    let search = document.querySelector("#students_search");
+    search.addEventListener("keyup", onKeyUp);
+    for (let i = 0; i < DATABASE.students.lastName; i++) {
+        if (search.includes(DATABASE.students.lastName)) {
+
+            getStudents(DATABASE.students);
+        }
+    }
+}*/
+
+function onKeyUp() {
+    console.log(this.value);
+    let searchedName = this.value;
+    //console.log(searchedName);
+    getStudents(DATABASE.students, searchedName);
+}
+
+function input() {
+    let search = document.getElementById("students_search");
+    search.addEventListener("keyup", onKeyUp);
+
+
+}
+
 
 getStudents(DATABASE.students);
+input();
+
+
+
 
 
