@@ -48,8 +48,14 @@ h3 {
     margin: 10px;
     font-weight: normal;
     font-size: 15px;
+    color: rgb(88, 88, 88);
 }
 
 h4 {
     margin: 10px;
+}
+
+#box {
+    margin-bottom: 10px;
+    padding: 5px;
 }
