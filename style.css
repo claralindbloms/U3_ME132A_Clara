@@ -25,6 +25,10 @@ body {
     flex-direction: row;
 }
 
+h2 {
+    font-size: 15px;
+}
+
 /*.finished {
     background-color: lightgreen;
 }
