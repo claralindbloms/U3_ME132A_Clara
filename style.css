@@ -1,0 +1,68 @@
+/*add de student css for now */
+body {
+    background-color: lightgray;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrapper {
+    padding: 25px;
+}
+
+
+#result {
+    margin-top: 15px;
+    background-color: whitesmoke;
+}
+
+#result > div {
+    background-color: whitesmoke;
+}
+
+#course_responsible {
+    display: flex;
+    flex-direction: row;
+}
+
+/*.finished {
+    background-color: lightgreen;
+}
+
+#courses {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    margin: 10px;
+}
+
+#courses > div {
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin: 5px;
+}*/
+
+header {
+    margin: 10px;
+    font-size: 15px;
+}
+
+p {
+    margin: 10px;
+}
+
+h3 {
+    margin: 10px;
+    font-weight: normal;
+    font-size: 15px;
+    color: rgb(88, 88, 88);
+}
+
+h4 {
+    margin: 10px;
+}
+
+#box {
+    margin-bottom: 10px;
+    padding: 5px;
+}
