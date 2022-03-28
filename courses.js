@@ -10,12 +10,11 @@ function getCourse(id) {
     div.id = "box";
     div.innerHTML = `
     <header> ${course.title} (${course.totalCredits} credits)</header>
-     <div id="course_responsible">
-    <h3>Course Responsible:</h3>${findResponsible(course)}
-    <div id ="teachers"><h3>Teachers:</h3>${findTeachers(course)}</div>
-    </div>
-    <div id="students"><h3>Students:</h3>${getStudent(course)}</div>
-    </div>`
+    <div id ="all_teachers">
+    <div id="course_responsible">
+    <h3>Course Responsible:</h3>${findResponsible(course)}</div>
+    <div id ="teachers"> <h3>Teachers:</h3>${findTeachers(course)}</div></div>
+    <h3>Students:</h3> <div id="students">${getStudent(course)}</div>`
     return div;
 } //anropningen är inte rätt
 //har inte lagt till ${findTeachers}
@@ -92,18 +91,18 @@ function getStudent(courses) {
     let studentBox = [];
     for (let i = 0; i < DATABASE.students.length; i++) {
         let div = document.createElement("div");
-        for ( let x = 0; x <DATABASE.students[i].courses.length; x++)
-        if (DATABASE.students[i].courses[x].courseId == courses.courseId && DATABASE.students[i].courses[x].passedCredits == courses.totalCredits) {
-            let text = div.innerHTML = `
+        for (let x = 0; x < DATABASE.students[i].courses.length; x++)
+            if (DATABASE.students[i].courses[x].courseId == courses.courseId && DATABASE.students[i].courses[x].passedCredits == courses.totalCredits) {
+                let text = div.innerHTML = `
             <div class="student_"><h2>${DATABASE.students[i].firstName} ${DATABASE.students[i].lastName} (${DATABASE.students[i].courses[x].passedCredits} credits)  </h2>
             <p>${DATABASE.students[i].courses[x].started.semester} ${DATABASE.students[i].courses[x].started.year}</div>`
-            studentBox.push(text);
-        } else if (DATABASE.students[i].courses[x].courseId == courses.courseId){
-            let text = div.innerHTML = `
+                studentBox.push(text);
+            } else if (DATABASE.students[i].courses[x].courseId == courses.courseId) {
+                let text = div.innerHTML = `
             <div class="not_finished"><h2>${DATABASE.students[i].firstName} ${DATABASE.students[i].lastName} (${DATABASE.students[i].courses[x].passedCredits} credits)  </h2>
             <p>${DATABASE.students[i].courses[x].started.semester} ${DATABASE.students[i].courses[x].started.year}</div>`
-            studentBox.push(text);
-        }
+                studentBox.push(text);
+            }
     }
     return studentBox.toString().split(",").join("");
 }
@@ -120,5 +119,5 @@ function input() {
     search.addEventListener("keyup", onKeyUp);
 }
 
-getCourses(DATABASE.courses);
+getCourses(DATABASE.courses); //uncomment to show everyone from beginning
 input();

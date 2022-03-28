@@ -27,18 +27,40 @@ body {
     margin: 5px;
 }
 
+
+#result {
+    margin-top: 15px;
+}
+
 #result > div {
     background-color: whitesmoke;
+}
+
+#all_teachers {
+    display: flex;
+    flex-direction: row;
+}
+
+#all_teachers > div > div {
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: pink;
+}
+
+#teachers {
+    display: flex;
+    flex-direction: row;
+}
+
+#teachers > h4 {
+    border: 1px solid gray;
+    border-radius: 10px;
 }
 
 #course_responsible {
     display: flex;
     flex-direction: row;
-}
 
-h2 {
-    font-size: 15px;
-    margin: 10px;
 }
 
 header {
@@ -47,6 +69,11 @@ header {
 }
 
 p {
+    margin: 10px;
+}
+
+h2 {
+    font-size: 15px;
     margin: 10px;
 }
 
