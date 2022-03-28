@@ -1,9 +1,32 @@
-/*add de student css for now */
+/*radera?? har lagt ihop cssn */
 body {
     background-color: lightgray;
     margin-left: 10px;
     margin-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body.dark, .dark input, .dark button{
+	color: white; 
+	background-color: black;
+}
+.dark #result > div {
+    background-color: rgb(24, 24, 24);
+    color: darkgray;
+}
+
+.dark .student_ {
+    background-color: rgb(1, 71, 1);
+}
+
+.dark #all_teachers > div > div {
+    background-color: hotpink;
+    color: white;
+}
+
+button {
+    margin-left: 25px;
+    margin-top: 5px;
 }
 
 #wrapper {
@@ -26,7 +49,6 @@ body {
     border: 1px solid gray;
     margin: 5px;
 }
-
 
 #result {
     margin-top: 15px;

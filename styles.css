@@ -5,18 +5,32 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-/* kanske ta bort */
-body.dark {
+body.dark, .dark input, .dark button{
 	color: white; 
 	background-color: black;
 }
+.dark #result > div {
+    background-color: rgb(24, 24, 24);
+    color: darkgray;
+}
 
+.dark .finished, .dark .student_ {
+    background-color: rgb(1, 71, 1);
+}
+
+.dark #all_teachers > div > div {
+    background-color: hotpink;
+    color: white;
+}
+
+button {
+    margin-left: 25px;
+    margin-top: 5px;
+}
 
 #wrapper {
     padding: 25px;
 }
-
 
 #result {
     margin-top: 15px;
@@ -26,21 +40,48 @@ body.dark {
     background-color: whitesmoke;
 }
 
-.finished {
+.finished, .student_ {
     background-color: lightgreen;
 }
 
-#courses {
+#courses,  #students{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
     margin: 10px;
 }
 
-#courses > div {
+#courses > div, #students > div {
     border-radius: 10px;
     border: 1px solid gray;
     margin: 5px;
+}
+
+/*#all_teachers {
+    display: flex;
+    flex-direction: row;
+}*/
+
+#all_teachers > div > div {
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: pink;
+}
+
+#teachers {
+    display: flex;
+    flex-direction: row;
+}
+
+#teachers > h4 {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#course_responsible {
+    display: flex;
+    flex-direction: row;
 }
 
 header {
@@ -49,6 +90,11 @@ header {
 }
 
 p {
+    margin: 10px;
+}
+
+h2 {
+    font-size: 15px;
     margin: 10px;
 }
 

@@ -89,31 +89,25 @@ function input() {
 }
 
 
-//!!!!!!!!!!!!!!!!!!!!!!!!
+//darkmode
+
 let darkMode = false;
-
-if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     darkMode = true;
-}
-
-if (localStorage.getItem('theme') === 'dark') {
+} if (localStorage.getItem("theme") === "dark") {
     darkMode = true;
-} else if (localStorage.getItem('theme') === 'light') {
+} else if (localStorage.getItem("theme") === "light") {
     darkMode = false;
+} if (darkMode) {
+    document.body.classList.toggle("dark");
 }
-
-if (darkMode) {
-    document.body.classList.toggle('dark');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
     });
 });
 
-///maybe delete everything inbetween
 
 getStudents(DATABASE.students); //uncomment to show everyone from beginning
 input();
