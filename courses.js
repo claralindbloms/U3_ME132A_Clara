@@ -14,7 +14,7 @@ function getCourse(id) {
     <header> ${course.title} (${course.totalCredits} credits)</header>
      <div id="course_responsible">
     <h3>Course Responsible:</h3>${findResponsible(course)}
-    <div id ="teachers"><h3>Teachers:</h3>${findTeacher(course)}</div>
+    <div id ="teachers"><h3>Teachers:</h3>${findTeachers(course)}</div>
     </div>
     <div id="students"><h3>Students:</h3>${getStudent(course)}</div>
     </div>`
@@ -24,6 +24,7 @@ function getCourse(id) {
 
 //fungerar ej än
 //?  <div id="students"><h3>Students:</h3>${getStudents(course)}</div>
+//${getStudent(course)}
 
 function getCourses(courses, searchedName) {
     let coursesElement = document.getElementById("result");
@@ -60,19 +61,30 @@ function findResponsible(courses) {
     return teacherBox.toString().split(",").join("");
 }
 
-function findTeacher(courses) {
-    let teacherBox = [];
+
+//fungerar ej 
+function findTeachers(courses) {
+    let teacherBox = []
     for (let i = 0; i < DATABASE.teachers.length; i++) {
-        let div = document.createElement("div");
-        if (DATABASE.teachers[i].teacherId == courses.teachers[i]) {
+        let div = document.createElement("div")
+        if (DATABASE.teachers[i].teacherId == courses.teachers[0]) {
             let text = div.innerHTML = `
-            <div class="assist"><h2>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName} (${DATABASE.teachers[i].post})</h2></div>`
+            <h4>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName}</h4>`
             teacherBox.push(text);
-        }
+        } else if (DATABASE.teachers[i].teacherId == courses.teachers[1]) {
+            let text = div.innerHTML = `
+            <h4>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName}</h4>`
+            teacherBox.push(text);
+        } else if (DATABASE.teachers[i].teacherId == courses.teachers[2]) {
+            let text = div.innerHTML = `
+            <h4>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName}</h4>`
+            teacherBox.push(text);
+        } 
     }
     return teacherBox.toString().split(",").join("");
 }
 
+//fungerar ej
 function getStudent(courses) {
     let studentBox = [];
     for (let i = 0; i < DATABASE.students.length; i++) {
@@ -81,9 +93,7 @@ function getStudent(courses) {
             let text = div.innerHTML = `
             <div class="student_"><h2>${DATABASE.students[i].firstName} ${DATABASE.students[i].lastName} </h2></div>`
             studentBox.push(text);
-       }  /*else {
-            studentBox.filter(text); bla bla bla
-        }*/
+        }
     }
     return studentBox.toString().split(",").join("");
 }
