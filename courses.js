@@ -16,12 +16,7 @@ function getCourse(id) {
     <div id ="teachers"> <h3>Teachers:</h3>${findTeachers(course)}</div></div>
     <h3>Students:</h3> <div id="students">${getStudent(course)}</div>`
     return div;
-} //anropningen är inte rätt
-//har inte lagt till ${findTeachers}
-
-//fungerar ej än
-//?  <div id="students"><h3>Students:</h3>${getStudents(course)}</div>
-//${getStudent(course)}
+}
 
 function getCourses(courses, searchedName) {
     let coursesElement = document.getElementById("result");
@@ -58,35 +53,21 @@ function findResponsible(courses) {
     return teacherBox.toString().split(",").join("");
 }
 
-
-//fungerar ej 
 function findTeachers(courses) {
     let teacherBox = []
     for (let i = 0; i < DATABASE.teachers.length; i++) {
         let div = document.createElement("div")
-        if (DATABASE.teachers[i].teacherId == courses.teachers[0]) {
-            let text = div.innerHTML = `
+        for (let x = 0; x < courses.teachers.length; x++) {
+            if (DATABASE.teachers[i].teacherId == courses.teachers[x]) {
+                let text = div.innerHTML = `
             <h4>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName} (${DATABASE.teachers[i].post})</h4>`
-            teacherBox.push(text);
-        } else if (DATABASE.teachers[i].teacherId == courses.teachers[1]) {
-            let text = div.innerHTML = `
-            <h4>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName} (${DATABASE.teachers[i].post})</h4>`
-            teacherBox.push(text);
-        } else if (DATABASE.teachers[i].teacherId == courses.teachers[2]) {
-            let text = div.innerHTML = `
-            <h4>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName} (${DATABASE.teachers[i].post})</h4>`
-            teacherBox.push(text);
+                teacherBox.push(text);
+            }
         }
     }
     return teacherBox.toString().split(",").join("");
 }
 
-
-//students: en loop som loopar igenom studenter, i den loopen loopa igenom den studentens kurser så det blir student[i].courses.lenght 
-//i den loopen ska vi ha en ifsats som kollar om sutdents[i].courses[i].courseId == courses.courseId
-
-
-//fungerar ej
 function getStudent(courses) {
     let studentBox = [];
     for (let i = 0; i < DATABASE.students.length; i++) {

@@ -5,6 +5,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+/* kanske ta bort */
+body.dark {
+	color: white; 
+	background-color: black;
+}
+
+
 #wrapper {
     padding: 25px;
 }
@@ -59,3 +67,5 @@ h4 {
     margin-bottom: 10px;
     padding: 5px;
 }
+
+

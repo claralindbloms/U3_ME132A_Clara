@@ -36,10 +36,10 @@ body {
     background-color: whitesmoke;
 }
 
-#all_teachers {
+/*#all_teachers {
     display: flex;
     flex-direction: row;
-}
+}*/
 
 #all_teachers > div > div {
     border-radius: 10px;
@@ -55,6 +55,7 @@ body {
 #teachers > h4 {
     border: 1px solid gray;
     border-radius: 10px;
+    padding: 10px;
 }
 
 #course_responsible {
