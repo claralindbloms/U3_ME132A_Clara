@@ -1,5 +1,8 @@
 "use strict";
 
+//Github Link:
+//https://github.com/claralindbloms/U3_ME132A_Clara.git
+
 function getCourse(id) {
     let div = document.createElement("div");
     let course = DATABASE.courses[id];
