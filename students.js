@@ -1,8 +1,5 @@
 "use strict";
 
-//let students = DATABASE.students;
-//let student = [DATABASE.students[0], DATABASE.students[1]];
-
 function getStudent(id) {
     let div = document.createElement("div");
     let student = DATABASE.students[id];
@@ -109,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-getStudents(DATABASE.students); //uncomment to show everyone from beginning
+//getStudents(DATABASE.students); //uncomment to show everyone from beginning
 input();
 
 

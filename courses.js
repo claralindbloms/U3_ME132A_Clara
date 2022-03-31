@@ -1,9 +1,5 @@
 "use strict";
 
-
-
-//anteckning till mig själv: sätt på aviseringar på datorn igen
-
 function getCourse(id) {
     let div = document.createElement("div");
     let course = DATABASE.courses[id];
@@ -88,7 +84,6 @@ function getStudent(courses) {
     return studentBox.toString().split(",").join("");
 }
 
-
 function onKeyUp() {
     let searchedName = this.value;
     getCourses(DATABASE.courses, searchedName);
@@ -119,5 +114,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-getCourses(DATABASE.courses); //uncomment to show everyone from beginning
+//getCourses(DATABASE.courses); //uncomment to show everyone from beginning
 input();

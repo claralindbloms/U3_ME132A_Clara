@@ -23,9 +23,23 @@ body.dark, .dark input, .dark button{
     color: white;
 }
 
+.dark button:hover {
+    background-color: hotpink;
+}
+
 button {
     margin-left: 25px;
     margin-top: 5px;
+    cursor: pointer;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.dark a{
+    color: white;
 }
 
 #wrapper {
@@ -56,11 +70,6 @@ button {
     border: 1px solid gray;
     margin: 5px;
 }
-
-/*#all_teachers {
-    display: flex;
-    flex-direction: row;
-}*/
 
 #all_teachers > div > div {
     border-radius: 10px;
@@ -114,10 +123,19 @@ h4 {
     padding: 5px;
 }
 
+/*didn't find the right place to add eventlistener, click
+and so on, but here is my attempt at display block/none*/
 
-/* in css for block
-#courses > div > p {
-    display: none;
-}/*
+#courses > div {
+    cursor: pointer;
+}
+#courses > div p{
+   display: none;
+}
+
+#courses div:active > p{
+   display: block;
+}
+
 
 
