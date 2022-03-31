@@ -115,3 +115,9 @@ h4 {
 }
 
 
+/* in css for block
+#courses > div > p {
+    display: none;
+}/*
+
+
